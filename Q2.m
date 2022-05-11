@@ -1,13 +1,13 @@
 % 2c)
 v = 138.9;
 launch_angle = 25*pi/180;
-theta = linspace(launch_angle,0,100);
+gamma = linspace(launch_angle,0,100);
 
 for n = [3.3 3 2.7 2.4]
-    r_theta = r(theta,v,n);
+    r_gamma = r(gamma,v,n);
 
-    x = r_theta.*sin(theta);
-    y = r(0,v,n) - r_theta.*cos(theta)+300;
+    x = r_gamma.*sin(gamma);
+    y = r(0,v,n) - r_gamma.*cos(gamma)+300;
 
     plot(x,y)
     hold on
