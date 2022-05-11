@@ -1,4 +1,4 @@
-% 1c)
+% 2c)
 v = 138.9;
 launch_angle = 25*pi/180;
 theta = linspace(launch_angle,0,100);
@@ -29,7 +29,7 @@ title('Trajetórias críticas de acordo com o fator de carga')
 
 hold off
 
-% 1d)
+% 2d)
 for n = linspace(2.7,3,30000)
     if abs(r(0,v,n) - r(launch_angle,v,n)*cos(launch_angle)+300-457.2) < 0.001
         n_max = n
