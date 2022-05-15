@@ -3,7 +3,7 @@ g = 9.8;
 S = 16;
 k = 0.025;
 C_D0 = 0.015;
-dT = 20; % Altere a atmosfera ISA aqui
+dT = 0; % Altere a atmosfera ISA aqui
 
 C_L = [sqrt(C_D0/k) sqrt(3*C_D0/k) 0.5 1 1.4];
 C_D = C_D0 + k.*C_L.^2;
@@ -28,9 +28,8 @@ for i = 1:5 % Escolhendo o valor de C_L #1, #2, ... #5
     x_final(:,i) = vec(:,2);
     v_final(:,i) = vec(:,3);
     gamma_final(:,i) = vec(:,4);
-    idx_toque = find(h_final(:,i)==interp1(h_final(:,i),h_final(:,i),0,'nearest'));
-    alcance(i) = x_final(idx_toque,i);
-    autonomia(i) = t(idx_toque)/60;
+    alcance(i) = interp1(h_final(:,i),x_final(:,i),0);
+    autonomia(i) = interp1(h_final(:,i),t,0)/60;
 end
 
 % 3a)
